@@ -39,7 +39,10 @@
                                         <buttonConfiguration key="configuration" style="filled" title="Log in"/>
                                         <connections>
                                             <action selector="loginButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="QKY-Mz-fY8"/>
-                                            <segue destination="3iv-ra-Zp1" kind="presentation" id="Kw9-Ui-sQw"/>
+                                            <segue destination="3iv-ra-Zp1" kind="presentation" id="Kw9-Ui-sQw">
+                                                <segue key="commit" inheritsFrom="parent" id="YpH-tW-cq1"/>
+                                                <segue key="preview" inheritsFrom="commit" id="c7Z-HC-jnU"/>
+                                            </segue>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -98,7 +101,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, user!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inM-Pa-zef">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, user!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="296" translatesAutoresizingMaskIntoConstraints="NO" id="inM-Pa-zef">
                                 <rect key="frame" x="40" y="120" width="295" height="41"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
@@ -121,7 +124,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qU3-JO-tsy"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ptm-Fc-hHy" firstAttribute="centerX" secondItem="0IY-y3-cxd" secondAttribute="centerX" id="1FD-ZL-e7e"/>
                             <constraint firstItem="inM-Pa-zef" firstAttribute="leading" secondItem="qU3-JO-tsy" secondAttribute="leading" constant="40" id="2hw-5d-oNk"/>
@@ -134,6 +137,7 @@
                             <constraint firstItem="748-Tx-lSq" firstAttribute="centerX" secondItem="inM-Pa-zef" secondAttribute="centerX" id="nBy-HB-xej"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="BUE-pX-uvg"/>
                     <connections>
                         <outlet property="greetingLabel" destination="inM-Pa-zef" id="E56-Bs-1Vn"/>
                     </connections>
@@ -143,6 +147,9 @@
             <point key="canvasLocation" x="725.60000000000002" y="3.1484257871064472"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Kw9-Ui-sQw"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="person.badge.shield.checkmark.fill" catalog="system" width="125" height="128"/>
         <namedColor name="AccentColor">

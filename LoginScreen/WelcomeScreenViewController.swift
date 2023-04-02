@@ -11,14 +11,14 @@ class WelcomeScreenViewController: UIViewController {
     
     @IBOutlet var greetingLabel: UILabel!
     
-    var greeting: String!
+    var greeting: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        greetingLabel.text = greeting
+        guard let greeting = self.greeting else { return }
+        greetingLabel.text = "Welcome, \(greeting)!"
 
-       
     }
     
 

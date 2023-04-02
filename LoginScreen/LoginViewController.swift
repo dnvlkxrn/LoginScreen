@@ -18,16 +18,12 @@ class ViewController: UIViewController {
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
+        super .touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
 
     @IBAction private func loginButtonTapped() {
-        func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            guard let destination = segue.destination as? WelcomeScreenViewController else { return }
-            //guard let settingsVC = segue.destination as? SettingsViewController else { return }
-            //settingsVC.minimumValue = minNumber.text
-            destination.greetingLabel.text = "Welcome, \(usernameTF.text)"
-        }
+        
     }
     
     @IBAction private func forgotUsernameButtonTapped() {
@@ -44,5 +40,12 @@ class ViewController: UIViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? WelcomeScreenViewController else { return }
+        
+        destination.greeting = usernameTF.text!
+    }
+    
 }
 
