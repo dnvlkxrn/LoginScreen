@@ -21,9 +21,16 @@ class ViewController: UIViewController {
         super .touchesBegan(touches, with: event)
         view.endEditing(true)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let destination = segue.destination as? WelcomeScreenViewController else { return }
+        destination.greeting = usernameTF.text!
+    }
 
     @IBAction private func loginButtonTapped() {
-        
+        if usernameTF.text != "qwerty" && passwordTF.text != "123456" {
+            showAlert(with: "Wrong username of password!", andMessage: "Please, enter valid username and password")
+        }
     }
     
     @IBAction private func forgotUsernameButtonTapped() {
@@ -34,6 +41,11 @@ class ViewController: UIViewController {
         showAlert(with: "Valid password", andMessage: "123456")
     }
     
+    @IBAction func unwind(segue: UIStoryboardSegue) {
+        usernameTF.text = ""
+        passwordTF.text = ""
+    }
+    
     private func showAlert(with title: String, andMessage message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default)
@@ -41,11 +53,7 @@ class ViewController: UIViewController {
         present(alert, animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destination = segue.destination as? WelcomeScreenViewController else { return }
-        
-        destination.greeting = usernameTF.text!
-    }
+    
     
 }
 
