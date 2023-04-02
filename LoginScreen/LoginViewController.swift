@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction private func loginButtonTapped() {
-        if usernameTF.text != "qwerty" && passwordTF.text != "123456" {
+        if usernameTF.text != "qwerty" || passwordTF.text != "123456" {
             showAlert(with: "Wrong username of password!", andMessage: "Please, enter valid username and password")
         }
     }
